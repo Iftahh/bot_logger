@@ -1,0 +1,29 @@
+{
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+
+	"name": "santler",
+	"version": "0.1.0",
+	"description": "A node js Evature BotKit Logger app",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+	  "coffee-script": "*",
+    "express": "^4.12.4",
+    "socket.io": "*",
+    "body-parser": "*"
+	},
+	"engines": {
+		"node": "5.4.1"
+	},
+	"keywords": [
+		"node",
+		"hyperdev",
+		"express",
+		"chat"
+	],
+	"license": "MIT"
+}
