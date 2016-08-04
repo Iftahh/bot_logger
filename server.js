@@ -15,6 +15,9 @@ var participants = [];
 
 function sendMessage(msg) {
   messages.push(msg);
+  if (messages.length > 250) {
+    messages = messages.slice(messages.length-250);  // avoid filling the server memory
+  }
   io.emit('chat message', msg);
 }
 
