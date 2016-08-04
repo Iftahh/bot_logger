@@ -43,10 +43,11 @@ h1 {
 }
 .messages tr { padding: 5px 10px; }
 
-.meassages thead th {
-  background: #222;
+.messages th {
+  background-color: #44c;
   color: white;
   text-align: center;
+  padding: 5px;
 }
 
 .messages td {
@@ -58,4 +59,31 @@ h1 {
    white-space: pre-wrap; 
    max-height: 200px;
    overflow: auto;
+   font-family: monospace;
+}
+
+.message-json .key {
+  font-weight: 900;
+  color: #113; 
+}
+
+.message-json .number {
+  font-weight: 800;
+  color: #ee422e;
+}
+
+.message-json .string {
+  font-weight: 800;
+  color: green;
+}
+
+.message-json .boolean {
+  font-weight: 800;
+  color: #ff8c00;
+}
+
+.message-json .null {
+  font-weight: 800;
+  color: #004ED0;
+  font-style: italic;
 }

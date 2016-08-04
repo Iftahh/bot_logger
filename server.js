@@ -50,7 +50,8 @@ listener = http.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
 
-// could also use the POST body instead of query string: http://expressjs.com/en/api.html#req.body
+// Configure BotKit Admin's message_logger to this URL
+// BotKit will POST a JSON body with a description of the event (eg. message sent to user, message from user, error message, etc...)
 app.post("/bot_logger", function (request, response) {
   sendMessage(JSON.stringify(request.body))
   response.sendStatus(200);
