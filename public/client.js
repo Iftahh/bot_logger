@@ -14,6 +14,7 @@ socket.on("connect", function() {
   socket.emit('register', nick);
 });
 
+// based on http://stackoverflow.com/a/7220510/519995
 function syntaxHighlight(json) {
     if (typeof json != 'string') {
          json = JSON.stringify(json, undefined, 2);
@@ -41,6 +42,9 @@ socket.on('chat message', function(msg) {
   $('.messages tbody').append($('<tr><td>'+
     dict._type+"</td><td>"+
     dict.messagingProvider+"</td><td><div class='message-json'>"+
-    syntaxHighlight(JSON.parse(dict.message))+"</div></td></tr>"));
+    syntaxHighlight(JSON.parse(dict.message))+"</div></td></tr>")
+  );
+  // scroll to bottom
+  window.scrollTo(0,document.body.scrollHeight);
 });
 
