@@ -37,10 +37,10 @@ function syntaxHighlight(json) {
     });
 }
 
-socket.on('chat message', function(msg) {
+socket.on('botlogger message', function(msg) {
   var dict = JSON.parse(msg);
-  $('.messages tbody').append($('<tr><td>'+
-    dict._type+"</td><td>"+
+  $('.messages tbody').append($('<tr><td class="type">'+
+    dict._type+"</td><td class='provider'>"+
     dict.messagingProvider+"</td><td><div class='message-json'>"+
     syntaxHighlight(JSON.parse(dict.message))+"</div></td></tr>")
   );

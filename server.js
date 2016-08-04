@@ -18,7 +18,7 @@ function sendMessage(msg) {
   if (messages.length > 250) {
     messages = messages.slice(messages.length-250);  // avoid filling the server memory
   }
-  io.emit('chat message', msg);
+  io.emit('botlogger message', msg);
 }
 
 io.on('connection', function(socket) {
@@ -29,15 +29,11 @@ io.on('connection', function(socket) {
 
   // Play back all messages to connecting user
   messages.forEach(function(message) {
-    socket.emit('chat message', message);
+    socket.emit('botlogger message', message);
   });
 
   socket.on('register', function(name) {
     participant.nick = name;
-  });
-
-  socket.on('chat message', function(msg) {
-    sendMessage(participant.nick+": "+msg);
   });
 
   socket.on('disconnect', function() {

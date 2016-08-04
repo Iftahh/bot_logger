@@ -55,6 +55,10 @@ h1 {
   vertical-align: top
 }
 
+.messages td.type, .messages td.provider {
+    padding: 8px 5px;
+}
+
 .message-json {
    white-space: pre-wrap; 
    max-height: 200px;
