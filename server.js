@@ -11,9 +11,15 @@ var io = require('socket.io')(http);
 app.use(bodyParser.json());
 
 var messages = [];
+var messageNum = 0;
 var participants = [];
 
-function sendMessage(msg) {
+function sendMessage(data) {
+  messageNum++;
+  var date = new Date();
+  var timestamp = date.getFullYear()+"/"+(date.getMonth()+1) + "/" + date.getDate() + " \n"+
+                  date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+  msg = JSON.stringify({'data': data, index: messageNum, timestamp: timestamp });
   messages.push(msg);
   if (messages.length > 250) {
     messages = messages.slice(messages.length-250);  // avoid filling the server memory
@@ -52,7 +58,7 @@ listener = http.listen(process.env.PORT, function () {
 // Configure BotKit Admin's message_logger to this URL
 // BotKit will POST a JSON body with a description of the event (eg. message sent to user, message from user, error message, etc...)
 app.post("/bot_logger", function (request, response) {
-  sendMessage(JSON.stringify(request.body))
+  sendMessage(request.body);
   response.sendStatus(200);
 });
 

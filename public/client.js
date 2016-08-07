@@ -38,11 +38,13 @@ function syntaxHighlight(json) {
 }
 
 socket.on('botlogger message', function(msg) {
-  var dict = JSON.parse(msg);
-  $('.messages tbody').append($('<tr><td class="type">'+
-    dict._type+"</td><td class='provider'>"+
-    dict.messagingProvider+"</td><td><div class='message-json'>"+
-    syntaxHighlight(JSON.parse(dict.message))+"</div></td></tr>")
+  var msg = JSON.parse(msg);
+  var data = msg.data;
+  $('.messages tbody').append($('<tr><td class="index">'+msg.index+'</td><td class="timestamp">'+msg.timestamp+
+  '</td><td class="type">'+
+    data._type+"</td><td class='provider'>"+
+    data.messagingProvider+"</td><td><div class='message-json'>"+
+    syntaxHighlight(JSON.parse(data.message))+"</div></td></tr>")
   );
   // scroll to bottom
   window.scrollTo(0,document.body.scrollHeight);
