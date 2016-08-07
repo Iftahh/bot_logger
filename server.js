@@ -29,7 +29,7 @@ function getFormattedDate() {
     min = (min < 10 ? "0" : "") + min;
     sec = (sec < 10 ? "0" : "") + sec;
 
-    var str = date.getFullYear() + "-" + month + "-" + day + "_" +  hour + ":" + min + ":" + sec;
+    var str = date.getFullYear() + "-" + month + "-" + day + " \n" +  hour + ":" + min + ":" + sec;
 
     /*alert(str);*/
 
@@ -40,7 +40,7 @@ function sendMessage(data) {
   messageNum++;
   var date = new Date();
   var timestamp = getFormattedDate();
-  msg = JSON.stringify({'data': data, index: messageNum, timestamp: timestamp });
+  var msg = JSON.stringify({'data': data, index: messageNum, timestamp: timestamp });
   messages.push(msg);
   if (messages.length > 250) {
     messages = messages.slice(messages.length-250);  // avoid filling the server memory
