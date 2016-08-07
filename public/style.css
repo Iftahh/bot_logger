@@ -55,6 +55,16 @@ h1 {
   vertical-align: top
 }
 
+.messages td.type, .messages td.provider, .messages td.index {
+    padding: 8px 5px;
+}
+
+.messages td.timestamp {
+  white-space: pre-wrap; 
+  padding: 8px 5px;
+  color: #22a;
+}
+
 .message-json {
    white-space: pre-wrap; 
    max-height: 200px;
