@@ -13,15 +13,19 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
+    <div class="top">
+      <label >Search: <input type="search" id="jetsSearch"></label>
+    </div>
     <div class="main">
       <table class="messages">
         <thead><tr><th>#</th><th>&#128336;</th><th>Type</th><th>MessagingProv</th><th>Body</th></tr></thead>
-        <tbody></tbody>
+        <tbody id="jetsContent"></tbody>
       </table>
   </div>
 
     <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.11.0/jets.min.js"></script>
     <script src="/client.js"></script>
   </body>
 </html>
